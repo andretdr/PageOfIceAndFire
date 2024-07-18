@@ -1,3 +1,7 @@
 .links {
   text-decoration: none;
 }
+
+.body_height {
+  min-height: calc(100vh - 285px);
+}
