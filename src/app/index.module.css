@@ -9,6 +9,6 @@
 }
 
 .body{
-    height: calc(100vh - 456px);
+    min-height: calc(100vh - 456px);
     background: rgb(55, 61, 50);
 }

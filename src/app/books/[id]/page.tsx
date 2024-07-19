@@ -1,6 +1,6 @@
 import styles from "./books_info.module.css";
 import Link from 'next/link';
-import { getAPI, dateStringFormat } from "@/app/utils/utils";
+import { getAPI, dateStringFormat, returnIndex } from "@/app/utils/utils";
 import { Metadata } from 'next';
 import PageImage from "@/app/components/PageImage";
 import BackToTop from "@/app/components/BackToTop";
@@ -22,10 +22,17 @@ export const generateMetadata = async(input :{params:{id:string}})
 }
 
 
-type Props = {bookinfo:{name:string, isbn:string, authors:string[], numberOfPages:string, publisher:string,country:string, released:string}};
+type Props = {bookinfo:{name:string, isbn:string, authors:string[], povCharacters:string[], numberOfPages:string, publisher:string,country:string, released:string}};
 
 /** Book info section */
 const BookInfo = async (props:Props) => {
+
+  const getName = async(url:string) =>{
+    const data = await getAPI({url:url, error:'Error on getName'});
+    return data.name !== ''
+            ? data.name
+            : data.aliases
+  }
 
 //  const bookinfo = await getAPI({url:`https://www.anapioficeandfire.com/api/books/${props.index}`, error:'Error reading book data'});
 
@@ -44,6 +51,17 @@ const BookInfo = async (props:Props) => {
                   <p className="">Publisher: {props.bookinfo.publisher as string}</p>
                   <p className="">Country: {props.bookinfo.country as string}</p>
                   <p className="">Released: {dateStringFormat(props.bookinfo.released as string)}</p>
+
+                  <p>POV Characters</p>
+                    <ul>
+                      {props.bookinfo.povCharacters.map((item:string)=>{return(
+                        <li key={item}><Link className='text-secondary' href={`/characters/${returnIndex(item)}`}>{getName(item)}</Link></li>
+                      )})}
+
+
+                    </ul>
+
+
                 </div>
               </div>
               <div className='d-flex flex-row align-items-center container-sm'>
@@ -59,6 +77,8 @@ const BookInfo = async (props:Props) => {
 const BookDetailPage = async(input:{params:{id:string}}) => {
 
   const bookinfo = await getAPI({url:`https://www.anapioficeandfire.com/api/books/${input.params.id}`, error:'Error on fetching Book Data'});
+
+
 
   return (
     <>
