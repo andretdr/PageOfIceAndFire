@@ -1,0 +1,14 @@
+.cardlink{
+    height: 30rem;
+    width: 50rem;
+    /* clip-path: polygon(0 0, 100% 0, 95% 0, 90% 100%, 0% 100%); */
+    
+}
+
+.bodybottom{
+    padding-bottom: 8rem;
+}
+
+.backtochar{
+    width: 20rem;
+}

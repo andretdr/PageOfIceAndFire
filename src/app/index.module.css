@@ -3,3 +3,12 @@
     width: 50 rem;
     clip-path: polygon(0 0, 100% 0, 95% 0, 90% 100%, 0% 100%);
 }
+
+.bgcolor{
+    background: rgb(55, 61, 50);
+}
+
+.body{
+    height: calc(100vh - 456px);
+    background: rgb(55, 61, 50);
+}

@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import Link from 'next/link';
-import PageImage from "./imgs/components/PageImage";
-
+import PageImage from "./components/PageImage";
+import BackToTop from "./components/BackToTop";
 import { relative } from "path";
 
 /** Link info to be mapped in CardLink component */
@@ -35,6 +35,7 @@ const CardLink = ()=> {
               </div>
             )
           })}
+          <BackToTop />
            </>
   )
 }
@@ -53,7 +54,7 @@ const Home = ()=> {
           </div>
         </section>
           <PageImage />
-        <section id='links' className='bg-black container-fluid body-padding'>
+        <section id='links' className={`${styles.body} container-fluid body-padding`}>
           <CardLink />
         </section>
     </>

@@ -17,18 +17,15 @@ const Navbar = async() =>{
 
 
     return (
-        <nav className="navbar navbar-expand-lg bg-dark z-3" data-bs-theme="dark">
+        <nav id='navbar' className="navbar navbar-expand-lg bg-dark z-3" data-bs-theme="dark">
             <div className="container-fluid">
                 <a className="navbar-brand ms-5" href="/">Song of Ice and Fire</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li key='character_link' className="nav-item">
+
+                    <div className="navbar-nav d-flex flex-row justify-contents-end mb-2 mb-lg-0">
+                        <div className="nav-item mx-3">
                             <Link className="nav-link" href="/characters/">Characters</Link>
-                        </li>
-                        <li key='books_link' className="nav-item dropdown dropdown_hover">
+                        </div>
+                        <div className="nav-item dropdown dropdown_hover">
                             <Link href='/books' className="nav-link dropdown-toggle me-5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Books
                             </Link>
@@ -39,9 +36,9 @@ const Navbar = async() =>{
                                         {item.name}</Link>
                                 )})}
                             </div>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
+                    </div>
+
             </div>
         </nav>
     )

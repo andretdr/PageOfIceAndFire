@@ -14,11 +14,15 @@ async function getAPI(apidata:{url:string, error:string}) {
  }
 
 /** reformatting the date */
-const dateStringFormat = (date: string): string =>{
+const dateStringFormat = (date: string, year: string = ''): string =>{
   const dateArr = date.split(/[-T:]/);
   const dateFormat = dateArr[1]+'-'+dateArr[2]+'-'+dateArr[0];
 
-  return (dateFormat)
+  // if year, return only the year. else return full date
+  return(
+  year === 'YEAR'
+  ?  dateArr[0]
+  :  dateFormat)
 }
 
 export {getAPI, returnIndex, dateStringFormat}

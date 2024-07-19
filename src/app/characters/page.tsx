@@ -1,7 +1,17 @@
 import Link from 'next/link';
 import { returnIndex, getAPI } from "../utils/utils";
-import PageImage from '../imgs/components/PageImage';
+import PageImage from '../components/PageImage';
 import styles from './character.module.css'
+import BackToTop from '../components/BackToTop';
+import { Metadata } from 'next';
+
+
+/** Meta data info */
+export const metadata: Metadata = {
+  title: 'Characters',
+  description: 'Link page for all characters'
+}
+
 
 /** handles link section */
 const CharacterLink = async ()=> {
@@ -11,7 +21,7 @@ const CharacterLink = async ()=> {
           {characterList.map((item:{name:string, aliases:string, url:string}, key : number)=>{
             return(
               <Link className={`links d-flex justify-content-center`} key={key} href={`/characters/${returnIndex(item.url)}`}>
-                <div className={`card m-4 ms-5 ${styles.cardlink}`}>
+                <div className={`card m-3 ms-5 ${styles.cardlink}`}>
                   <div className="card-body d-flex justify-content-between">
                     <h5 className="card-title text-decoration-none">
                       {/* if name not available, use alias */}
@@ -30,6 +40,10 @@ const CharacterLink = async ()=> {
               </Link>
             )
           })}
+            <div className='d-flex flex-row align-items-center container-sm'>
+              <Link className={`mx-3 text-white text-decorations-none backtoprev`} href='/'>Back to Home</Link>
+              <BackToTop />
+            </div>
            </div>
   )
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './navbar'
+import Footer from './footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -25,6 +26,7 @@ export default function RootLayout({
         
         
         {children}
+
       </body>
     </html>
   );

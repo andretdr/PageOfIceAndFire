@@ -46,3 +46,12 @@
 .body-padding{
   padding-top: 15rem;  
 }
+
+.backtoprev{
+  width: 25rem;
+}
+
+.footer{
+  height: 6rem;
+  width: 100vw;
+}
