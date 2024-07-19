@@ -1,39 +1,46 @@
-const Navbar = () =>{
+import { getAPI, returnIndex } from "./utils/utils"
+import Link from 'next/link'
+
+
+
+const Navbar = async() =>{
+    const booklist = await getAPI({url:'https://www.anapioficeandfire.com/api/books', error:'Error fetching books information'});
+
+    const handleClick = () =>{
+        const el = document.getElementById('dropdown_menu');
+        !el
+        ? null
+        : el.style.display === 'absolute'
+        ? el.style.display = 'none'
+        : el.style.display = 'absolute'
+    }
+
 
     return (
-        <nav className="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <nav className="navbar navbar-expand-lg bg-dark z-3" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/">World of Ice and Fire</a>
+                <a className="navbar-brand ms-5" href="/">Song of Ice and Fire</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                    <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li key='character_link' className="nav-item">
+                            <Link className="nav-link" href="/characters/">Characters</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Link</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Action</a></li>
-                                <li><a className="dropdown-item" href="#">Another action</a></li>
-                                <li><hr className="dropdown-divider"/></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+                        <li key='books_link' className="nav-item dropdown dropdown_hover">
+                            <Link href='/books' className="nav-link dropdown-toggle me-5" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Books
+                            </Link>
+
+                            <div id='dropdown_menu' className="d-flex flex-column dropdown_menu">
+                                {booklist.map((item:{name:string, url:string})=>{return(
+                                    <Link key={item.name} className="text-white bg-secondary text-decoration-none p-3" href={`/books/${returnIndex(item.url)}`}>
+                                        {item.name}</Link>
+                                )})}
+                            </div>
                         </li>
                     </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </nav>
