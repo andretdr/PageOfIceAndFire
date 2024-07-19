@@ -1,9 +1,10 @@
 .bookbg{
     background: rgb(122, 60, 60);
+    height: calc(100vh - 456px);
 }
 
 .cardlink{
-    height: 26rem;
+    height: 32rem;
     width: 50rem;
     /* clip-path: polygon(0 0, 100% 0, 95% 0, 90% 100%, 0% 100%); */
     

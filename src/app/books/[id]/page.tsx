@@ -30,9 +30,9 @@ const BookInfo = async (props:Props) => {
 //  const bookinfo = await getAPI({url:`https://www.anapioficeandfire.com/api/books/${props.index}`, error:'Error reading book data'});
 
   return (  <section className="d-flex flex-column">
-              <div className={`card mx-auto ${styles.cardlink}`}>
-                <div className="card-body p-5">
-                  <h3 className="">{props.bookinfo.name as string}</h3>
+              <div className={`card mx-auto text-secondary ${styles.cardlink}`}>
+                <div className="card-body p-5 ms-5">
+                  <h5 className="fs-2 mb-3">{props.bookinfo.name as string}</h5>
                   <p className="">ISBN: {props.bookinfo.isbn as string}</p>
                   <p className="">Authors</p>
                     <ul>

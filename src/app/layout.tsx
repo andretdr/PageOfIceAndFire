@@ -1,17 +1,12 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from './navbar'
-import Footer from './footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Page of Ice and Fire",
-  description: "A Heicoders Assignment",
-};
+
 
 export default function RootLayout({
   children,

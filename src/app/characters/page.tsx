@@ -22,19 +22,20 @@ const CharacterLink = async ()=> {
             return(
               <Link className={`links d-flex justify-content-center`} key={key} href={`/characters/${returnIndex(item.url)}`}>
                 <div className={`card m-3 ms-5 ${styles.cardlink}`}>
-                  <div className="card-body d-flex justify-content-between">
-                    <h5 className="card-title text-decoration-none">
+                  <div className="card-body d-flex flex-column ms-5">
+                    <h5 className="fs-2 card-title text-secondary text-decoration-none">
                       {/* if name not available, use alias */}
                       {item.name !== ''
                         ? item.name
                         : item.aliases}
                     </h5>
-                    <span>
+                    <small>
                       {/* if name not available, print 'alias' */}
                       {item.name !== ''
                         ? null
                         : 'aliases'}
-                    </span>
+                    </small>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                   </div>
                 </div>
               </Link>
@@ -61,7 +62,7 @@ const Characters = ()=> {
           </div>
         </section>
         <PageImage />
-        <section id='links' className='bg-secondary body-padding d-flex flex-row justify-content-center'>
+        <section id='links' className={`body-padding d-flex flex-row justify-content-center ${styles.body}`}>
           <CharacterLink />
         </section>
     </>

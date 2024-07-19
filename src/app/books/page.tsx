@@ -22,9 +22,9 @@ const BookList = async() => {
             {booklist.map((item:{name:string, url:string, released: string})=>{return(
               <>
                 <Link className='text-decoration-none' href={`/books/${returnIndex(item.url)}`}>
-                  <div className={`card my-4 ${styles.cardlink}`}>
-                    <div className="card-body">
-                      <h5 className="card-title text-decoration-none text-secondary">
+                  <div className={`card my-4 pt-3 ${styles.cardlink}`}>
+                    <div className="card-body ms-5">
+                      <h5 className="fs-2 card-title text-decoration-none text-secondary">
                         {item.name}
                       </h5>
                       <small className="text-muted">

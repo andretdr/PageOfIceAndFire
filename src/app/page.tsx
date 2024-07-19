@@ -2,7 +2,7 @@ import styles from "./index.module.css";
 import Link from 'next/link';
 import PageImage from "./components/PageImage";
 import BackToTop from "./components/BackToTop";
-import { relative } from "path";
+import type { Metadata } from "next";
 
 /** Link info to be mapped in CardLink component */
 const linkInfo = [
@@ -17,6 +17,13 @@ const linkInfo = [
     url: '/books/',
   }
 ]
+
+/** metadata */
+export const metadata: Metadata = {
+  title: "Page of Ice and Fire",
+  description: "A Heicoders Assignment",
+};
+
 
 /** handles link section */
 const CardLink = ()=> {
@@ -48,7 +55,7 @@ const Home = ()=> {
           <div className='container-lg'>
 
             <h1 className="display-2 pt-5 pb-2 text-center text-secondary bg-transparent">
-              A Song of Ice and Fire</h1>
+              A Page of Ice and Fire</h1>
             <p className="fs-5 pb-5 text-center text-muted mb-0 bg-transparent">
               Explore the rich universe of author George R. R. Martin</p>
           </div>

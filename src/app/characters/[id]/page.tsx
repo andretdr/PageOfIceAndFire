@@ -32,8 +32,8 @@ const CharacterInfo = async (props: Props) => {
 
   return (<>
             <div className={`card container-sm ${styles.cardlink}`}>
-              <div className="card-body d-flex flex-column justify-content-between">
-                <h5 className="card-title text-decoration-none">
+              <div className="ms-5 card-body text-secondary d-flex flex-column justify-content-between">
+                <h5 className="fs-2 card-title text-decoration-none">
                   {props.info.name !== ''
                   ? props.info.name
                   : props.info.aliases[0]}
@@ -85,7 +85,7 @@ const CharacterDetail = async (input : {params:{id: string}})=> {
           </div>
         </section>
         <PageImage />
-        <section id='links' className={`bg-secondary bg-gradient body-padding ${styles.bodybottom}`}>
+        <section id='links' className={`body-padding ${styles.bodybottom}`}>
           <CharacterInfo info={characterinfo}/>
         </section>
         

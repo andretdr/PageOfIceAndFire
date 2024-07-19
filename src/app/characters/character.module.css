@@ -1,5 +1,9 @@
 .cardlink{
-    height: 6rem;
+    height: 9rem;
     width: 55rem;
     clip-path: polygon(0 0, 100% 0, 100% 0, 96% 100%, 0% 100%);
+}
+
+.body{
+    background: rgb(47, 60, 73);
 }

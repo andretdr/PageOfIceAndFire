@@ -19,7 +19,7 @@ const Navbar = async() =>{
     return (
         <nav id='navbar' className="navbar navbar-expand-lg bg-dark z-3" data-bs-theme="dark">
             <div className="container-fluid">
-                <a className="navbar-brand ms-5" href="/">Song of Ice and Fire</a>
+                <a className="navbar-brand ms-5" href="/">Page of Ice and Fire</a>
 
                     <div className="navbar-nav d-flex flex-row justify-contents-end mb-2 mb-lg-0">
                         <div className="nav-item mx-3">
